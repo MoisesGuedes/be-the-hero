@@ -1,0 +1,30 @@
+<div class="profile-container">
+  <header>
+    <img src="assets/logo.svg" alt="Be The Hero">
+    <span>Bem vinda, {{ongName}}</span>
+
+    <a class="button" routerLink="/newIncident">Cadastrar novo caso</a>
+    <button (click)="handleLogout()" type="button">
+      <i-feather style="size: 18px; color: #e02041;" name="power"></i-feather>
+    </button>
+  </header>
+
+  <h1>Casos cadastrados</h1>
+
+  <ul>
+    <li id="{{incident.id}}" *ngFor="let incident of incidents">
+      <strong>CASO:</strong>
+      <p>{{incident.title}}</p>
+
+      <strong>DESCRIÇÃO</strong>
+      <p>{{incident.description}}</p>
+
+      <strong>VALOR:</strong>
+      <p>{{incident.value | currency: 'BRL': true}}</p>
+
+      <button (click)="handleDeleteIncident(incident.id)" type="button">
+        <i-feather style="size: 20px; color: #a8a8b3;" name="trash2"></i-feather>
+      </button>
+    </li>
+  </ul>
+</div>
